@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import Landing from './Components/landing/landing';
+import MainContent from './Components/mainContent/mainContent';
 import Playlists from './Components/playlists/playlists';
 
 class App extends Component {
@@ -19,9 +20,7 @@ class App extends Component {
     return (
       <div className='app'>
         <Landing title="Best Albums of 2020" site="albertobonora.com"/>
-        <div className="slide2">
-          <h1>here just for testing the full page landing component</h1>
-        </div>
+        <MainContent title="Best Albums of 2020" site="albertobonora.com" year="2020"/>
         <Playlists/>
       </div>
     );

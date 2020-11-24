@@ -1,0 +1,41 @@
+@import './../../Styles/variables.scss';
+@import './../../Styles/mixins.scss';
+
+.maincontent{
+    width: 100vw;
+    height: 2000px;
+    background-color: $ab-light-grey;
+
+    header{
+        background-color: black;
+        height: 70px;
+        border-bottom: 4px solid $ab-pink;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        line-height: 70px;
+        display: flex;
+        padding: 0 12px;
+        h6{
+            flex: 1;
+            flex-direction: column;
+            @include subtitleFont(400,2,#fff);
+            display: flex;
+            &:nth-of-type(even){
+                align-items: flex-end;
+            }
+
+            @media only screen and (min-width: $screen-lg){
+                @include font-size(2.5);
+                &:nth-of-type(odd){
+                    align-items: flex-end;
+                    padding-right: 4px;
+                }
+                &:nth-of-type(even){
+                    padding-left: 4px;
+                    align-items: flex-start;
+                }
+            }
+        }
+    }
+}
