@@ -18,3 +18,25 @@
 @mixin subtitleFont ($weight, $size, $color){
     @include fontStyles($weight, $size, $color, $subtitlefont);
 }
+@mixin defaultFont ($weight, $size, $color){
+    @include fontStyles($weight, $size, $color, $defaultfont);
+}
+
+@mixin inner-container{
+    max-width: $screen-xs-max;
+    margin: 0 auto;
+    padding: 0 12px;
+
+    @media only screen and (min-width: $screen-sm){
+        max-width: $screen-sm;
+    }
+    @media only screen and (min-width: $screen-md){
+        max-width: $screen-md;
+    }
+    @media only screen and (min-width: $screen-lg){
+        max-width: $screen-lg;
+    }
+    @media only screen and (min-width: $screen-xl){
+        max-width: $screen-xl;
+    }
+}

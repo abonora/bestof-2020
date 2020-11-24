@@ -1,8 +1,51 @@
+@import './../../Styles/variables.scss';
+@import './../../Styles/mixins.scss';
+
 .playlists{
-    background-color: green;
+    background-color: white;
     position: fixed;
     width: 100vw;
     bottom: 0;
     z-index: -1;
-    height: 300px;
+    height: 330px;
+
+    &--inner{
+        @include inner-container();
+    }
+
+    &--title{
+        @include subtitleFont(500, 4, black);
+        margin: 15px 0;
+        @media only screen and (max-width: $screen-xs-max){
+            text-align: center;
+        }
+    }
+
+    &--scroll{
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+    &--item{
+        flex: 0 0 auto;
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+        margin-right: 10px;
+        a{
+            @include defaultFont(normal, 1.6, white);
+            text-decoration: none;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+
+    footer{
+        padding: 15px 0;
+        position: absolute;
+        bottom: 0;
+        margin: 0 20px;
+        @include defaultFont(normal, 1.2, black);
+    }
 }
