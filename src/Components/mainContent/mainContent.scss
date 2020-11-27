@@ -3,7 +3,7 @@
 
 .maincontent{
     width: 100vw;
-    height: 2000px;
+    //height: 2000px;
     background-color: $ab-light-grey;
 
     header{
@@ -35,6 +35,94 @@
                     padding-left: 4px;
                     align-items: flex-start;
                 }
+            }
+        }
+    }
+
+    &--inner{
+        @include inner-container();
+    }
+
+    p{
+        margin: 30px auto;
+        text-align: center;
+        padding-bottom: 30px;
+        border-bottom: solid 1px #fff;
+
+        @include defaultFont(normal,1.4,#000);
+        line-height: 20px;
+
+        @media only screen and (min-width:$screen-lg){
+            max-width: 75%;
+        }
+    }
+
+    .albumlist{
+        display: flex;
+        flex-wrap: wrap;
+
+        &--entry{
+            display: flex;
+            justify-content: center;
+            flex: 0 0 100%;
+            box-sizing: border-box;
+            border-bottom: solid 2px darkgray;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+
+            @media only screen and (min-width: $screen-sm){
+                flex: 0 0 calc(100% / 2);
+                justify-content: flex-start
+            }
+            @media only screen and (min-width: $screen-md){
+                flex: 0 0 calc(100% / 3);
+            }
+
+            ul{
+                list-style: none;
+                padding:0;
+                margin: 0cm;
+            }
+        }
+        &--info{
+            display: flex;
+            align-items: center;
+            &-cover{
+                max-width: 150px;
+                max-height: 150px;
+                position: relative;
+                border-radius: 50%;
+                box-sizing: border-box;
+                border: solid 5px black;
+                overflow: hidden;
+                background-color: black;
+                img{
+                    width: 100%;
+                }
+
+                span{
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    text-align: center;
+                    background: black;
+                    width: 100%;
+                    padding: 2px 0;
+                    @include defaultFont(bold,1.4,#fff);
+                }
+            }
+            &-details{
+                padding: 0 10px;
+                display: flex;
+                flex-direction: column;
+            }
+            &-title{
+                @include subtitleFont(400,2.2,$ab-pink);
+                line-height: 20px;
+            }
+            &-artist{
+                @include defaultFont(500,1.4,black);
+                margin: 5px 0;
             }
         }
     }
