@@ -55,9 +55,12 @@ class App extends Component {
                             <div className="albumlist--info-details">
                                 <span className="albumlist--info-title">The Deadbeat Bang of Heartbreak City</span>
                                 <span className="albumlist--info-artist">Beach Slang</span>
-                                <ul>
-                                    <li>
-                                        <a href="#">Track Name</a>
+                                <ul className="albumlist--info-list">
+                                    <li className="albumlist--info-listitem">
+                                        <a href="#">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 11.611">
+                                                <path id="ic_headset_24px" d="M8.5,1A5.5,5.5,0,0,0,3,6.5v4.278a1.831,1.831,0,0,0,1.833,1.833H6.667V7.722H4.222V6.5a4.278,4.278,0,1,1,8.556,0V7.722H10.333v4.889h1.833A1.831,1.831,0,0,0,14,10.778V6.5A5.5,5.5,0,0,0,8.5,1Z" transform="translate(-3 -1)" fill="#fff"/>
+                                            </svg> Track Name</a>
                                     </li>
                                     <li>
                                         <a href="#">Track Name</a>

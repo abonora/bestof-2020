@@ -9,7 +9,7 @@
     header{
         background-color: black;
         height: 70px;
-        border-bottom: 4px solid $ab-pink;
+        border-bottom: 4px solid $ab-pastel-green;
         position: sticky;
         top: 0;
         z-index: 1;
@@ -81,7 +81,7 @@
             ul{
                 list-style: none;
                 padding:0;
-                margin: 0cm;
+                margin: 0;
             }
         }
         &--info{
@@ -93,11 +93,12 @@
                 position: relative;
                 border-radius: 50%;
                 box-sizing: border-box;
-                border: solid 5px black;
+                border: solid 5px $ab-pastel-navy;
                 overflow: hidden;
-                background-color: black;
+                background-color: $ab-pastel-navy;
                 img{
                     width: 100%;
+                    background-color: $ab-pastel-navy;
                 }
 
                 span{
@@ -105,10 +106,10 @@
                     bottom: 0;
                     left: 0;
                     text-align: center;
-                    background: black;
+                    background: $ab-pastel-navy;
                     width: 100%;
                     padding: 2px 0;
-                    @include defaultFont(bold,1.4,#fff);
+                    @include defaultFont(bold,1.4,$ab-light-grey);
                 }
             }
             &-details{
@@ -117,12 +118,34 @@
                 flex-direction: column;
             }
             &-title{
-                @include subtitleFont(400,2.2,$ab-pink);
+                @include subtitleFont(400,2.2,$ab-pastel-green);
                 line-height: 20px;
             }
             &-artist{
-                @include defaultFont(500,1.4,black);
+                @include defaultFont(500,1.4,$ab-pastel-navy);
                 margin: 5px 0;
+            }
+            &-listitem{
+                a{
+                    text-decoration: none;
+                    @include defaultFont(normal,1.1,#000);
+                    transition: all 350ms ease-in-out;
+                    svg{
+                        width: 12px;
+                        path{
+                            transition: all 350ms ease-in-out;
+                            fill: $ab-pastel-navy;
+                        }
+                    }
+                    &:hover{
+                        color: $ab-pastel-pink;
+                        svg{
+                            path{
+                                fill: $ab-pastel-pink;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
