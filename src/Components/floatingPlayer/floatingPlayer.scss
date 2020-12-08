@@ -1,0 +1,34 @@
+@import './../../Styles/variables.scss';
+@import './../../Styles/mixins.scss';
+
+.floatingplayer{
+    background-color: white;
+    position: sticky;
+    bottom: 0;
+    z-index: 11;
+    line-height: 70px;
+    display: flex;
+    padding: 0 12px;
+    width: 100%;
+    overflow: hidden;
+    @media only screen and (max-width: $screen-xs-max){
+        flex-direction: column;
+    }
+
+    iframe{
+        position: relative;
+        @media only screen and (max-width: $screen-xs-max){
+            width: 100%!important;
+            height: 100%!important;
+        }
+    }
+
+    &--close{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    // &--info{
+
+    // }
+}

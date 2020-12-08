@@ -11,6 +11,9 @@
     background-size: cover;
     background-position: center center;
 
+    position: relative;
+    z-index: 12;
+
     &--inner{
         width: 100%;
         align-self: flex-end;
