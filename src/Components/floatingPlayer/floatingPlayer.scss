@@ -2,17 +2,22 @@
 @import './../../Styles/mixins.scss';
 
 .floatingplayer{
-    background-color: white;
+    background-color: $ab-light-grey;
     position: sticky;
     bottom: 0;
     z-index: 11;
     line-height: 70px;
     display: flex;
-    padding: 0 12px;
+    padding: 12px;
     width: 100%;
     overflow: hidden;
+    border-top: solid 4px $ab-pastel-navy;
+    
     @media only screen and (max-width: $screen-xs-max){
         flex-direction: column;
+    }
+    @media only screen and (min-width: $screen-sm){
+        //justify-content: center;
     }
 
     iframe{
@@ -25,10 +30,57 @@
 
     &--close{
         position: absolute;
-        top: 0;
+        top: 10px;
         right: 0;
+        border: none;
+        background: none;
+        outline: none;
+        svg{
+            width: 45px;
+            path{
+                fill: $ab-pastel-pink;
+                transition: $ab-transitions;
+            }
+        }
+        &:hover{
+            cursor: pointer;
+            svg{
+                path{
+                    fill: $ab-pastel-green;
+                }
+            }
+        }
     }
-    // &--info{
-
-    // }
+    &--info{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        @media only screen and (min-width: $screen-sm){
+            width: calc(100% - 540px);
+            margin-right: 25px;
+            justify-content: center;
+            align-items: center;
+        }
+        &-artist{  
+            @include defaultFont(500,1.4,$ab-pastel-navy);
+            line-height: normal;
+            @media only screen and (min-width: $screen-sm){
+                @include font-size(2);
+            }
+        }
+        &-album{
+            @include subtitleFont(400,2.2,$ab-pastel-green);
+            line-height: normal;
+            @media only screen and (min-width: $screen-sm){
+                @include font-size(2.8);
+            }
+        }
+        &-number{
+            @include subtitleFont(400,2.2,$ab-pastel-pink);
+            line-height: normal;
+            @media only screen and (min-width: $screen-sm){
+                @include font-size(2.6);
+            }
+        }
+    }
 }
