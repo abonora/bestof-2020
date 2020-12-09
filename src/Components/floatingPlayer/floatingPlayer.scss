@@ -12,6 +12,16 @@
     width: 100%;
     overflow: hidden;
     border-top: solid 4px $ab-pastel-navy;
+    transition: $ab-transitions;
+    opacity: 1;
+    max-height: 1000px;
+    //transform: scale(1);
+
+    &.hidden{
+        opacity: 0;
+        max-height: 0;
+        //transform: scale(0);
+    }
     
     @media only screen and (max-width: $screen-xs-max){
         flex-direction: column;
