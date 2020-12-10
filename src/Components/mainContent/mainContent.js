@@ -4,44 +4,25 @@ import Album from './../album/album';
 import './mainContent.scss';
 
 class MainContent extends Component {
-  constructor() {
-    super();
-    
-    this.state = {
-        //closePlayer: true,
-        selectedVideo: {
-            artist: null,
-            album: null,
-            id: null,
-            rank: null
-        },
-        playerLoaded: false,
-        item: {
-            artist: 'Pallbearer',
-            album: 'Forgotten Days',
-            rank: 50,
-            ytid: '5jZfWaNJSuc',
-            img: '',
-            tracks: [
-                {
-                    title: 'Riverbed',
-                    link: '5jZfWaNJSuc'
-                },
-                {
-                    title: 'The Quicksand of Existing',
-                    link: 'UuHi8Wk4Gzc'
-                },
-                {
-                    title: 'Forgotten Days',
-                    link: 'Lz1ftvBVDV0'
-                }
-            ]
-        }
-    };
+    constructor() {
+        super();
 
-    this.closePlayer = this.closePlayer.bind(this);
-    this.playVideo = this.playVideo.bind(this);
-  }
+        this.state = {
+            error: null,
+            isLoaded: false,
+            items: [],
+            selectedVideo: {
+                artist: null,
+                album: null,
+                id: null,
+                rank: null
+            },
+            playerLoaded: false
+        };
+
+        this.closePlayer = this.closePlayer.bind(this);
+        this.playVideo = this.playVideo.bind(this);
+    }
 
     closePlayer(){
         this.setState({
@@ -81,27 +62,54 @@ class MainContent extends Component {
         
     };
   
-  // async componentDidMount() {
-    
-    
-  // }
-  render() {
-    return (
-        <div className="maincontent">
-            <header>
-                <h6>{this.props.title}</h6>
-                <h6>{this.props.site}</h6>
-            </header>
-            <div className="maincontent--inner">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dui ex, blandit vel massa et, laoreet bibendum nibh. In eu lorem lorem. Vivamus felis neque, ultricies nec mi nec, feugiat tincidunt orci. Nunc mi nunc, tristique nec tempus eget, faucibus vel neque. Nam bibendum nibh quis augue pulvinar commodo. Nulla at convallis massa. Cras eros justo, pretium pellentesque sollicitudin sodales, mollis ac tellus. Praesent ut eleifend velit, ac vestibulum est. Vestibulum fermentum massa et iaculis suscipit. Etiam sit amet odio dolor. Integer bibendum, metus et consectetur placerat, dolor erat imperdiet diam, et cursus magna orci egestas tellus. Phasellus ornare velit et leo dictum, quis malesuada orci congue. Nullam dapibus odio vitae tortor eleifend luctus. Aenean suscipit augue suscipit auctor dictum. Integer luctus commodo rutrum.</p>
-                <div className="albumlist">
-                    <Album item={this.state.item} playHandler={this.playVideo}/>
-                    <FloatingPlayer height="200" width="200" YTid={this.state.selectedVideo} playerLoaded={this.state.playerLoaded} closeHandler={this.closePlayer}/>
+    componentDidMount(){
+        fetch("https://albertobonora.com/feeds/wp-json/wp/v2/albums?filter[category_name]=best-of-2020&filter[posts_per_page]=60")
+        .then(res => res.json())
+        .then(
+            (result) => {
+                this.setState({
+                    isLoaded: true,
+                    items: result
+                });
+            },
+            (error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                });
+            }
+        )
+    }
+    render() {
+        return (
+            <div className="maincontent">
+                <header>
+                    <h6>{this.props.title}</h6>
+                    <h6>{this.props.site}</h6>
+                </header>
+                <div className="maincontent--inner">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dui ex, blandit vel massa et, laoreet bibendum nibh. In eu lorem lorem. Vivamus felis neque, ultricies nec mi nec, feugiat tincidunt orci. Nunc mi nunc, tristique nec tempus eget, faucibus vel neque. Nam bibendum nibh quis augue pulvinar commodo. Nulla at convallis massa. Cras eros justo, pretium pellentesque sollicitudin sodales, mollis ac tellus. Praesent ut eleifend velit, ac vestibulum est. Vestibulum fermentum massa et iaculis suscipit. Etiam sit amet odio dolor. Integer bibendum, metus et consectetur placerat, dolor erat imperdiet diam, et cursus magna orci egestas tellus. Phasellus ornare velit et leo dictum, quis malesuada orci congue. Nullam dapibus odio vitae tortor eleifend luctus. Aenean suscipit augue suscipit auctor dictum. Integer luctus commodo rutrum.</p>
+                    {
+                        this.state.error &&
+                        <h1>{this.state.error}</h1>
+                    }
+                    {
+                        !this.state.isLoaded &&
+                        <h1>LOADING</h1>
+                    }
+                    {
+                        !this.state.error && this.state.isLoaded &&
+                        <div className="albumlist">
+                            {this.state.items.map(item => (
+                                <Album key={item.id} item={item} playHandler={this.playVideo}/>
+                            ))}
+                            <FloatingPlayer height="200" width="200" YTid={this.state.selectedVideo} playerLoaded={this.state.playerLoaded} closeHandler={this.closePlayer}/>
+                        </div>
+                    }
                 </div>
             </div>
-        </div>
-    );
-  }
+        );
+    }
 }
 
 export default MainContent;
