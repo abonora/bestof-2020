@@ -95,10 +95,13 @@ class MainContent extends Component {
                     }
                     {
                         !this.state.isLoaded &&
-                        <h1>LOADING</h1>
+                        <div className="loading">
+                            <div className="loading--spinner"></div>
+                        </div>
                     }
                     {
                         !this.state.error && this.state.isLoaded &&
+                        
                         <div className="albumlist">
                             {this.state.items.map(item => (
                                 <Album key={item.id} item={item} playHandler={this.playVideo}/>

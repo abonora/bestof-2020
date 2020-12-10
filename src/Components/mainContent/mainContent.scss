@@ -1,6 +1,11 @@
 @import './../../Styles/variables.scss';
 @import './../../Styles/mixins.scss';
-
+@keyframes is-rotating{
+    to{
+        transform: rotate(1turn)
+    }
+}
+  
 .maincontent{
     width: 100vw;
     //height: 2000px;
@@ -55,136 +60,19 @@
             max-width: 75%;
         }
     }
-
-    .albumlist{
+    .loading{
+        margin: 30px auto;
         display: flex;
-        flex-wrap: wrap;
-
-        &--entry{
-            display: flex;
-            justify-content: center;
-            flex: 0 0 100%;
-            box-sizing: border-box;
-            border-bottom: solid 2px darkgray;
-            margin-bottom: 30px;
-            padding-bottom: 30px;
-
-            @media only screen and (min-width: $screen-sm){
-                flex: 0 0 calc(100% / 2);
-                justify-content: flex-start
-            }
-            @media only screen and (min-width: $screen-md){
-                flex: 0 0 calc(100% / 3);
-            }
-
-            ul{
-                list-style: none;
-                padding:0;
-                margin: 0;
-            }
-        }
-        &--info{
-            display: flex;
-            align-items: center;
-            width: 100%;
-            &-cover{
-                max-width: 150px;
-                max-height: 150px;
-                position: relative;
-                border-radius: 50%;
-                box-sizing: border-box;
-                border: solid 5px $ab-pastel-navy;
-                overflow: hidden;
-                background-color: $ab-pastel-navy;
-                img{
-                    width: 100%;
-                    background-color: $ab-pastel-navy;
-                    transition: $ab-transitions;
-                }
-                svg{
-                    width: 50px;
-                    height: 50px;
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%,-50%);
-                    z-index: 4;
-                    opacity: .8;
-                    transition: $ab-transitions;
-                }
-                span{
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    text-align: center;
-                    background: $ab-pastel-navy;
-                    width: 100%;
-                    padding: 2px 0;
-                    z-index: 2;
-                    @include defaultFont(bold,1.4,$ab-light-grey);
-                }
-
-                &:before{
-                    width: 100%;
-                    height: 100%;
-                    content: '';
-                    background-color: rgba(0,0,0,0);
-                    z-index: 1;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    z-index: 1;
-                    transition: $ab-transitions;
-                }
-                &:hover{
-                    cursor: pointer;
-                    img{
-                        transform: scale(1.1);
-                    }
-                    svg{
-                        opacity: 1;
-                    }
-                    &:before{
-                        background-color: rgba(0,0,0,.5);
-                    }
-                }
-            }
-            &-details{
-                padding: 0 10px;
-                display: flex;
-                flex-direction: column;
-            }
-            &-title{
-                @include subtitleFont(400,2.2,$ab-pastel-green);
-                line-height: 20px;
-            }
-            &-artist{
-                @include defaultFont(500,1.4,$ab-pastel-navy);
-                margin: 5px 0;
-            }
-            &-listitem{
-                a{
-                    text-decoration: none;
-                    @include defaultFont(normal,1.1,#000);
-                    transition: $ab-transitions;
-                    svg{
-                        width: 12px;
-                        path{
-                            transition: $ab-transitions;
-                            fill: $ab-pastel-navy;
-                        }
-                    }
-                    &:hover{
-                        color: $ab-pastel-pink;
-                        cursor: pointer;
-                        svg{
-                            path{
-                                fill: $ab-pastel-pink;
-                            }
-                        }
-                    }
-                }
-            }
+        justify-content: center;
+        &--spinner{
+            width: 50px;
+            height: 50px;
+            border: 6px solid $ab-pastel-navy;
+            border-top-color: $ab-pastel-yellow;
+            display: block;
+            animation: is-rotating 1s infinite;
+            border-radius: 50%;
         }
     }
+    
 }
