@@ -1,3 +1,4 @@
+import './album.scss';
 function Album(props){
     const youtubeid = props.item.meta_box.youtube;
     const artist = props.item.meta_box.artist;
