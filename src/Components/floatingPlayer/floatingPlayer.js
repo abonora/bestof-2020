@@ -9,7 +9,7 @@ class FloatingPlayer extends Component{
                 <div className="floatingplayer--info">
                     <span className="floatingplayer--info-album">{this.props.YTid.album}</span>
                     <span className="floatingplayer--info-artist">{this.props.YTid.artist}</span>
-                    <span className="floatingplayer--info-number">{this.props.YTid.rank}</span>
+                    <span className="floatingplayer--info-number">#{this.props.YTid.rank}</span>
                 </div>
                 <iframe key={this.props.YTid} width="300" height="300" src={'https://www.youtube.com/embed/'+this.props.YTid.id+'?autoplay=1'} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameBorder="0"></iframe>
                 <button className="floatingplayer--close" onClick={() => closeHandler()}>
