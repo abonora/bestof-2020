@@ -67,6 +67,7 @@ class MainContent extends Component {
         .then(res => res.json())
         .then(
             (result) => {
+                result.sort((a, b) => b.meta_box.rank - a.meta_box.rank);
                 this.setState({
                     isLoaded: true,
                     items: result
