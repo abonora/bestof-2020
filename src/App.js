@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.scss';
 import Landing from './Components/landing/landing';
 import MainContent from './Components/mainContent/mainContent';
 import Playlists from './Components/playlists/playlists';
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('UA-683832-1', {
+  debug: true,
+  titleCase: false
+});
 
 class App extends Component {
   constructor() {
@@ -13,31 +18,30 @@ class App extends Component {
         {
           title: "2020 Singles Playlist",
           link: "https://www.youtube.com/playlist?list=PLU8FrQ7tP8P7YAgfg-OAYWPdkmrUpRP12",
-          image: "./../../playlist-singles.jpg"
+          image: "/music/bestof20/playlist-singles.jpg"
         },
         {
           title: "YouTube Music 2020 Metal Playlist",
           link: "https://music.youtube.com/playlist?list=RDCLAK5uy_kdj05g3j2epDRBPguSMBU3hm4rX4nlpLg&feature=share&playnext=1",
-          image: "./../../playlist-metal.jpg"
+          image: "/music/bestof20/playlist-metal.jpg"
         },
         {
           title: "YouTube Music 2020 Punk Playlist",
           link: "https://music.youtube.com/playlist?list=RDCLAK5uy_mQmPoJ7Ray-n-7pQ0gnf5Tq67RuATSKO4&feature=share&playnext=1",
-          image: "./../../playlist-punk.jpg"
+          image: "/music/bestof20/playlist-punk.jpg"
         },
         {
           title: "YouTube Music 2020 Rock Playlist",
           link: "https://music.youtube.com/playlist?list=RDCLAK5uy_m4c1fOfyBgYm9FbIts1s_toooYFTjEtjE",
-          image: "./../../playlist-rock.jpg"
+          image: "/music/bestof20/playlist-rock.jpg"
         }
       ]
     }
   }
   
-  // async componentDidMount() {
-    
-    
-  // }
+  componentDidMount() {
+		ReactGA.pageview(window.location.pathname)
+	}
   render() {
     return (
       <div className='app'>

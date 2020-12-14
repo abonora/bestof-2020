@@ -29,8 +29,7 @@
     &--item{
         flex: 0 0 auto;
         width: 200px;
-        height: 200px;
-        background-color: $ab-pastel-navy;
+        height: auto;
         margin-right: 10px;
         a{
             @include defaultFont(normal, 1.6, white);
