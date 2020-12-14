@@ -1,4 +1,5 @@
 import './album.scss';
+import Lazyload from 'react-lazyload';
 function Album(props){
     const youtubeid = props.item.meta_box.youtube;
     const artist = props.item.meta_box.artist;
@@ -19,7 +20,7 @@ function Album(props){
                         <path id="ic_play_circle_outline_24px" d="M21.112,36.641,35.447,25.891,21.112,15.14ZM25.891,2A23.891,23.891,0,1,0,49.781,25.891,23.9,23.9,0,0,0,25.891,2Zm0,43A19.112,19.112,0,1,1,45,25.891,19.138,19.138,0,0,1,25.891,45Z" transform="translate(-2 -2)" fill="#fff"/>
                     </svg>
 
-                    <img src={img} title={artist + ' - ' + album} alt={artist + ' - ' + album} />
+                    <Lazyload once><img src={img} title={artist + ' - ' + album} alt={artist + ' - ' + album} /></Lazyload>
                     <span>{rank}</span>
                 </div>
                 <div className="albumlist--info-details">

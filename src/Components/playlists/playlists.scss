@@ -30,7 +30,7 @@
         flex: 0 0 auto;
         width: 200px;
         height: 200px;
-        background-color: blue;
+        background-color: $ab-pastel-navy;
         margin-right: 10px;
         a{
             @include defaultFont(normal, 1.6, white);
@@ -38,6 +38,18 @@
             width: 100%;
             height: 100%;
             display: block;
+            img{
+                width: 100%;
+                transition: $ab-transitions;
+            }
+        }
+        &:hover{
+            cursor: pointer;
+            a{
+                img{
+                    opacity: .75;
+                }
+            }
         }
     }
 
