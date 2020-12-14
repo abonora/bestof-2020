@@ -75,21 +75,21 @@
             @include defaultFont(500,1.4,$ab-pastel-navy);
             line-height: normal;
             @media only screen and (min-width: $screen-sm){
-                @include font-size(2);
+                @include font-size(2.2);
             }
         }
         &-album{
             @include subtitleFont(400,2.2,$ab-pastel-green);
             line-height: normal;
             @media only screen and (min-width: $screen-sm){
-                @include font-size(2.8);
+                @include font-size(3);
             }
         }
         &-number{
             @include subtitleFont(400,2.2,$ab-pastel-pink);
             line-height: normal;
             @media only screen and (min-width: $screen-sm){
-                @include font-size(2.6);
+                @include font-size(2.8);
             }
         }
     }

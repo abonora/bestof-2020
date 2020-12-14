@@ -66,6 +66,9 @@
                 padding: 2px 0;
                 z-index: 2;
                 @include defaultFont(bold,1.4,$ab-light-grey);
+                @media only screen and (min-width: $screen-md){
+                    @include font-size(1.8);
+                }
             }
 
             &:before{
@@ -101,10 +104,18 @@
         &-title{
             @include subtitleFont(400,2.2,$ab-pastel-green);
             line-height: 20px;
+
+            @media only screen and (min-width: $screen-md){
+                @include font-size(3);
+                line-height: 25px;
+            }
         }
         &-artist{
             @include defaultFont(500,1.4,$ab-pastel-navy);
             margin: 5px 0;
+            @media only screen and (min-width: $screen-md){
+                @include font-size(1.8);
+            }
         }
         &-listitem{
             a{
