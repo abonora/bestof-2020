@@ -6,7 +6,7 @@ import Playlists from './Components/playlists/playlists';
 import ReactGA from 'react-ga';
 
 ReactGA.initialize('UA-683832-1', {
-  debug: true,
+  debug: false,
   titleCase: false
 });
 
