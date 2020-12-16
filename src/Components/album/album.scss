@@ -40,6 +40,9 @@
             border: solid 5px $ab-pastel-navy;
             overflow: hidden;
             background-color: $ab-pastel-navy;
+            display: block;
+            width: 100%;
+            -webkit-mask-image: -webkit-radial-gradient(white, black);
             img{
                 width: 100%;
                 background-color: $ab-pastel-navy;
@@ -82,11 +85,13 @@
                 left: 0;
                 z-index: 1;
                 transition: $ab-transitions;
+                display: block;
             }
             &:hover{
                 cursor: pointer;
                 img{
-                    transform: scale(1.1);
+                    transform: scale(1.1, 1.1);
+                    // -webkit-transform:scale(1.1, 1.1);
                 }
                 svg{
                     opacity: 1;
